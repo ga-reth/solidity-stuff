@@ -3,11 +3,11 @@ pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
 
-contract Greeter {
+contract Staker {
     string private greeting;
 
     constructor(string memory _greeting) {
-        console.log("Deploying a Greeter with greeting:", _greeting);
+        console.log("Deploying a Staker contract with a greeting:", _greeting);
         greeting = _greeting;
     }
 

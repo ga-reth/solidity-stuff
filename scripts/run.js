@@ -1,12 +1,12 @@
 async function main() {
 
     // We get the contract to deploy
-    const Staker = await hre.ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, Hardhat!");
+    const Staker = await hre.ethers.getContractFactory("Staker");
+    const staker = await Staker.deploy("Hello, Hardhat!");
   
-    await greeter.deployed();
+    await staker.deployed();
   
-    console.log("Greeter deployed to:", greeter.address);
+    console.log("Greeter deployed to:", staker.address);
   }
 
 main()
@@ -15,6 +15,3 @@ main()
     console.error(error);
     process.exit(1);
   });
-
-
-runMain()
