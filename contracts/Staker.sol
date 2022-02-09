@@ -4,19 +4,20 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 contract Staker {
-    string private greeting;
+    mapping ( address => uint256 ) public balances;
+    uint256 public constant threshold = 1 ether;
+    
+    event NewStake(address from, uint amount);
 
-    constructor(string memory _greeting) {
-        console.log("Deploying a Staker contract with a greeting:", _greeting);
-        greeting = _greeting;
-    }
+    // what does the payable keyword indicate?
+    function stake() public payable {}
 
-    function greet() public view returns (string memory) {
-        return greeting;
-    }
-
-    function setGreeting(string memory _greeting) public {
-        console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
-        greeting = _greeting;
-    }
+    function withdraw() public {}
+    
+    // what is this receive special function?
+    // why does it need to be external and payable?
+    receive() external payable {}
+    
+    function timeLeft() public {}
+    
 }
