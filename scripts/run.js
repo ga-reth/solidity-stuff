@@ -1,12 +1,21 @@
+async function hello_world() {
+  const Hello = await hre.ethers.getContractFactory("Hello");
+
+  const helloContract = await Hello.deploy();
+  await helloContract.deployed();
+  console.log("Hello deployed to:", helloContract.address);
+
+  const greetTxn = await helloContract.greet("Hello world!");
+  await greetTxn.wait();
+  const greetTxn2 = await helloContract.greet("Hello world, again!");
+  await greetTxn2.wait();
+}
+
 async function main() {
 
-    // We get the contract to deploy
-    const Staker = await hre.ethers.getContractFactory("Staker");
-    const staker = await Staker.deploy("Hello, Hardhat!");
-    
-    await staker.deployed();
-    
-    console.log("Greeter deployed to:", staker.address);
+    await hello_world()
+
+    console.log("main complete");
 }
 
 main()
