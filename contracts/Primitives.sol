@@ -57,9 +57,6 @@ contract Primitives {
 
     function showPrimitives() public view {
         console.log("_______");
-        
-
-
         console.log("_______");
     }
 }
