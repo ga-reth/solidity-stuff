@@ -1,3 +1,5 @@
+// solidity by example
+
 async function hello_world() {
   const Hello = await hre.ethers.getContractFactory("Hello");
 
@@ -11,11 +13,28 @@ async function hello_world() {
   await greetTxn2.wait();
 }
 
+async function counter() {
+  const Counter = await hre.ethers.getContractFactory("Counter");
+
+  const counterContract = await Counter.deploy();
+  console.log("Counter deployed to:", counterContract.address);
+
+  const getTxn = await counterContract.get();
+  console.log(getTxn);
+
+  const incTxn = await counterContract.inc();
+  await incTxn.wait();
+
+  const getTxn2 = await counterContract.get();
+  console.log(getTxn2);
+}
+
 async function main() {
 
-    await hello_world()
+    // await hello_world()
+    await counter()
 
-    console.log("main complete");
+    console.log("_____________main complete");
 }
 
 main()
