@@ -29,15 +29,12 @@ async function counter() {
   console.log(getTxn2);
 }
 
-async function primitives() {
-  
-}
-
 async function main() {
 
     // await hello_world();
     // await counter();
-    await primitives();
+    // await primitives();
+    // await variables();
 
     console.log("_____________main complete");
 }
