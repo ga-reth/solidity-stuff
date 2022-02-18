@@ -56,6 +56,41 @@ async function gas() {
   console.log(foreverTxn);
 }
 
+async function mapping() {
+  // mapping
+  const mapping = await hre.ethers.getContractFactory("Mapping");
+  const mappingContract = await mapping.deploy();
+  
+  const getMappingTxn = await mappingContract.get();
+  console.log(getMappingTxn);
+
+  const setTxn = await mappingContract.set(999);
+  await setTxn.wait();
+  console.log(setTxn);
+
+  const getMappingTxn2 = await mappingContract.get();
+  console.log(getMappingTxn2);
+
+  const delTxn = await mappingContract.remove();
+  await delTxn.wait();
+  console.log(delTxn);
+
+  const getMappingTxn3 = await mappingContract.get();
+  console.log(getMappingTxn3);
+
+  // nested mapping
+  const nestedMapping = await hre.ethers.getContractFactory("NestedMapping");
+  const nestMapContract = await nestedMapping.deploy();
+
+  const getNestTxn = await nestMapContract.get(1);
+  console.log(getNestTxn);
+  const setTxn = await nestMapContract.set(1,true);
+  await setTxn.wait();
+  const getNestTxn2 = await nestMapContract.get(1);
+  console.log(getNestTxn2);
+
+}
+
 async function main() {
 
     // await hello_world();
@@ -63,9 +98,9 @@ async function main() {
     // await primitives();
     // await variables();
     // await storage();
-    await gas();
+    // await gas();
+    await mapping();
 
-    console.log("_____________main complete");
 }
 
 main()
