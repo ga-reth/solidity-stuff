@@ -29,12 +29,29 @@ async function counter() {
   console.log(getTxn2);
 }
 
+async function storage() {
+  const Storage = await hre.ethers.getContractFactory("SimpleStorage");
+
+  const storageContract = await Storage.deploy();
+  console.log("Storage deployed to:", storageContract.address);
+
+  // get or read, don't need txns
+  const getTxn = await storageContract.get();
+  console.log(getTxn);
+
+  // write to state needs txns
+  const stateTxn = await storageContract.set(123);
+  await stateTxn.wait();
+
+}
+
 async function main() {
 
     // await hello_world();
     // await counter();
     // await primitives();
     // await variables();
+    await storage();
 
     console.log("_____________main complete");
 }
