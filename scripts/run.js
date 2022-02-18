@@ -84,11 +84,22 @@ async function mapping() {
 
   const getNestTxn = await nestMapContract.get(1);
   console.log(getNestTxn);
-  const setTxn = await nestMapContract.set(1,true);
-  await setTxn.wait();
+  const setNestTxn = await nestMapContract.set(1,true);
+  await setNestTxn.wait();
   const getNestTxn2 = await nestMapContract.get(1);
   console.log(getNestTxn2);
 
+}
+
+async function arr() {
+  const arr = await hre.ethers.getContractFactory("Array");
+
+  const arrContract = await arr.deploy();
+  console.log("arr deployed to:", arrContract.address);
+
+  // get or read, don't need txns
+  const txn = await arrContract.get(1);
+  console.log(txn);
 }
 
 async function main() {
@@ -99,7 +110,8 @@ async function main() {
     // await variables();
     // await storage();
     // await gas();
-    await mapping();
+    // await mapping();
+    await arr();
 
 }
 
