@@ -45,13 +45,25 @@ async function storage() {
 
 }
 
+async function gas() {
+  const gas = await hre.ethers.getContractFactory("Gas");
+
+  const gasContract = await gas.deploy();
+  console.log("Gas deployed to:", gasContract.address);
+
+  // get or read, don't need txns
+  const foreverTxn = await gasContract.forever();
+  console.log(foreverTxn);
+}
+
 async function main() {
 
     // await hello_world();
     // await counter();
     // await primitives();
     // await variables();
-    await storage();
+    // await storage();
+    await gas();
 
     console.log("_____________main complete");
 }
