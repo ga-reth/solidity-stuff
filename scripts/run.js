@@ -102,6 +102,16 @@ async function arr() {
   console.log(txn);
 }
 
+async function dataLocs() {
+  const datalocs = await hre.ethers.getContractFactory("DataLocations");
+
+  const datalocsContract = await datalocs.deploy();
+  console.log("datalocsContract deployed to:", datalocsContract.address);
+
+  const txn = await datalocsContract.f();
+  console.log(txn);
+}
+
 async function main() {
 
     // await hello_world();
@@ -111,7 +121,8 @@ async function main() {
     // await storage();
     // await gas();
     // await mapping();
-    await arr();
+    // await arr();
+    await dataLocs();
 
 }
 
