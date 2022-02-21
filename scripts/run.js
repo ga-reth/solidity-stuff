@@ -122,6 +122,16 @@ async function modifiers() {
   console.log(txn);
 }
 
+async function events() {
+  const Event = await hre.ethers.getContractFactory("Event");
+
+  const eventContract = await Event.deploy();
+  console.log("eventContract deployed to:", eventContract.address);
+
+  const txn = await eventContract.test();
+  console.log(txn);
+}
+
 async function main() {
 
     // await hello_world();
@@ -133,7 +143,8 @@ async function main() {
     // await mapping();
     // await arr();
     // await dataLocs();
-    await modifiers();
+    // await modifiers();
+    await events();
 
 }
 
