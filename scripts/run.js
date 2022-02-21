@@ -122,7 +122,7 @@ async function main() {
     // await gas();
     // await mapping();
     // await arr();
-    await dataLocs();
+    // await dataLocs();
 
 }
 
