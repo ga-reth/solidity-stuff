@@ -112,6 +112,16 @@ async function dataLocs() {
   console.log(txn);
 }
 
+async function modifiers() {
+  const modif = await hre.ethers.getContractFactory("FunctionModifier");
+
+  const modifContract = await modif.deploy();
+  console.log("modifContract deployed to:", modifContract.address);
+
+  const txn = await modifContract.dec(2);
+  console.log(txn);
+}
+
 async function main() {
 
     // await hello_world();
@@ -123,6 +133,7 @@ async function main() {
     // await mapping();
     // await arr();
     // await dataLocs();
+    await modifiers();
 
 }
 
