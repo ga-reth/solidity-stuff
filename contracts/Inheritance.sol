@@ -40,7 +40,7 @@ contract E is C, B {
 // inheritance ordered 'most base-like' to 'most derived'
 // swapping will throw compilation error
 contract F is A, B {
-    function foo() public pure override(A,C) returns (string memory) {
+    function foo() public pure override(A,B) returns (string memory) {
         return super.foo();
     }    
 }
