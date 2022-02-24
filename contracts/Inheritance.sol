@@ -36,7 +36,6 @@ contract E is C, B {
     }
 }
 
-
 // inheritance ordered 'most base-like' to 'most derived'
 // swapping will throw compilation error
 contract F is A, B {
