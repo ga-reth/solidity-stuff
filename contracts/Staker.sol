@@ -9,7 +9,7 @@ contract Staker {
     
     event NewStake(address from, uint amount);
 
-    // what does the payable keyword indicate?
+    // payable means this function can be passed eth to be held in contract balance
     function stake() public payable {}
 
     function withdraw() public {}
